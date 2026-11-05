@@ -34,3 +34,8 @@ Text tools you can chain into pipelines you can run again.
 
 - [Tacit](https://github.com/datakid/tacit): A keyboard-first, offline Android launcher with Arabic-aware search.
 - [PS Tools](https://github.com/datakid/ps-tools-): A Windows right-click toolkit. One small exe, no installer.
+
+**Rules**
+
+- Files stay on your device.
+- Every README states the tool's limits.
