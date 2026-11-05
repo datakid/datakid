@@ -1,5 +1,3 @@
-### Ahmed
-
 Local-first tools for working with data.
 Spreadsheets, Power Query, CSV and text. They run on your machine and never upload your files.
 
