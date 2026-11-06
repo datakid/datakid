@@ -15,7 +15,7 @@ Pharmacy, insurance and data tools. Most run in the browser with no backend of t
 
 ### Formulary and search
 
-- [newlist](https://github.com/datakid/newlist) — LX Search 5.5. Medicine search with a calculator for several pricing models. The tray holds at most 30 calculations. Loads Google Fonts from a CDN. Not installable; no service worker.
+- [newlist](https://github.com/datakid/newlist) — LX Search 5.5. Medicine search with a calculator for several pricing models. The tray holds at most 30 calculations. Calls Google Fonts and, on Refresh, its own `data/drugs.json`; nothing else leaves the browser. Not installable; no service worker.
 - [searchbar](https://github.com/datakid/searchbar) — Lx Search F4. Lookup over 1,106 medication records in one file with no build step. Two Acetyl Salicylic Acid variants still match weakly when spelled phonetically. Loads Google Fonts from a CDN. Not installable; no service worker.
 - [lx-parser](https://github.com/datakid/lx-parser) — Reads messy Arabic and English inventory sheets and detects headers and layout. All data stays in this browser, with no server and no sync. Calls Google Sheets for remote sources; loads PapaParse and Google Fonts from CDNs.
 
