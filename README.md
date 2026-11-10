@@ -1,4 +1,64 @@
-Pharmacy, insurance and data tools. Most run in the browser with no backend of their own; the exceptions are marked.
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
+<img src="assets/banner-light.svg" alt="Pharmacy, insurance and data tools. Most run in the browser with no backend of their own; the exceptions are marked." width="100%">
+</picture>
+
+<table>
+<tr>
+<td width="50%" valign="top">
+<a href="https://power-query-manager.vercel.app"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/quoin-dark.svg"><img src="assets/quoin-light.svg" alt="Quoin: edit and run the Power Query and VBA inside an .xlsx. VBA is edited, never run. No network calls; installable, works offline." width="100%"></picture></a><br>
+<sub><a href="https://github.com/datakid/power-query-manager">Repository</a> · <a href="https://power-query-manager.vercel.app">Live</a></sub>
+</td>
+<td width="50%" valign="top">
+<a href="https://duckbench2.vercel.app"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/duckbench-dark.svg"><img src="assets/duckbench-light.svg" alt="Duckbench: data prep on CSV, Excel, JSON and Parquet, by steps or SQL. On large files some steps run on a 1,000,000-row preview. Calls jsDelivr and extensions.duckdb.org; not installable." width="100%"></picture></a><br>
+<sub><a href="https://github.com/datakid/duckbench">Repository</a> · <a href="https://duckbench2.vercel.app">Live</a></sub>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<a href="https://data-cleaner-coral.vercel.app"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/weft-dark.svg"><img src="assets/weft-light.svg" alt="Weft: pasted text or a file to a clean table, one undoable step at a time. Offers other readings when its format guess is wrong. No network calls; not installable." width="100%"></picture></a><br>
+<sub><a href="https://github.com/datakid/data-cleaner">Repository</a> · <a href="https://data-cleaner-coral.vercel.app">Live</a></sub>
+</td>
+<td width="50%" valign="top">
+<a href="https://text-tools-kohl.vercel.app"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/sluice-dark.svg"><img src="assets/sluice-light.svg" alt="Sluice: chain text tools into pipelines you can save and re-run. Text only, no binary formats. No network calls; not installable." width="100%"></picture></a><br>
+<sub><a href="https://github.com/datakid/text-tools">Repository</a> · <a href="https://text-tools-kohl.vercel.app">Live</a></sub>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<a href="https://solver-clone.vercel.app"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nadir-dark.svg"><img src="assets/nadir-light.svg" alt="Nadir: optimisation solver with Goal, Decide, Subject to and Given. Nonlinear engines do not prove global optimality. No network calls; installable, works offline." width="100%"></picture></a><br>
+<sub><a href="https://github.com/datakid/solver-clone">Repository</a> · <a href="https://solver-clone.vercel.app">Live</a></sub>
+</td>
+<td width="50%" valign="top">
+<a href="https://lx-search-kappa.vercel.app"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/lx-search-dark.svg"><img src="assets/lx-search-light.svg" alt="Lx Search: formulary lookup over 1,261 medications. A built-in snapshot; Refresh reads data/formulary.json. Calls Google Fonts and its own formulary.json; installable." width="100%"></picture></a><br>
+<sub><a href="https://github.com/datakid/lx-search-">Repository</a> · <a href="https://lx-search-kappa.vercel.app">Live</a></sub>
+</td>
+</tr>
+</table>
+
+**Files and data**  
+[Veritas Lens](https://github.com/datakid/pattern-recognition-) · [Alembic](https://github.com/datakid/dashboard2) · [bugvert](https://github.com/datakid/bugvert) · [draw](https://github.com/datakid/draw) · [lx-id](https://github.com/datakid/lx-id) · [gitlink](https://github.com/datakid/gitlink) · [harvest-studio](https://github.com/datakid/harvest-studio)
+
+**Formulary and search**  
+[newlist](https://github.com/datakid/newlist) · [searchbar](https://github.com/datakid/searchbar) · [lx-parser](https://github.com/datakid/lx-parser)
+
+**Reporting forms (Arabic)**  
+[slippery-form-2.2](https://github.com/datakid/slippery-form-2.2) · [daftar](https://github.com/datakid/daftar) · [finalapp](https://github.com/datakid/finalapp)
+
+**Launchers and workspace**  
+[app-launcher](https://github.com/datakid/app-launcher) · [alt-app-lanucher](https://github.com/datakid/alt-app-lanucher) · [Desktop](https://github.com/datakid/Desktop)
+
+**Desktop and Android**  
+[ps-tools-](https://github.com/datakid/ps-tools-) · [duckbench-tauri-demo](https://github.com/datakid/duckbench-tauri-demo) · [tacit](https://github.com/datakid/tacit) · [contact-flow](https://github.com/datakid/contact-flow)
+
+**Other**  
+[survival-mirror](https://github.com/datakid/survival-mirror) · [Pillbug](https://github.com/datakid/Pillbug) · [shareholders](https://github.com/datakid/shareholders)
+
+**Archived or superseded**  
+[dashboard-yearly](https://github.com/datakid/dashboard-yearly) · [experimental](https://github.com/datakid/experimental)
+
+<details>
+<summary>Network and limits, tool by tool</summary>
 
 ### Selected tools
 
@@ -53,5 +113,7 @@ Pharmacy, insurance and data tools. Most run in the browser with no backend of t
 
 - [dashboard-yearly](https://github.com/datakid/dashboard-yearly) — Superseded by Alembic.
 - [experimental](https://github.com/datakid/experimental) — Drug protocol index. The page states its content is AI-generated and not for actual use.
+
+</details>
 
 Forks on this account (tacit, roi-calculator, entity-tracker, To-Do) are from my own alternate account, not third-party code. winget-pkgs is an upstream fork.
