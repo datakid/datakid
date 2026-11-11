@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 210" width="1000" height="210" role="img" aria-label="Pharmacy, insurance and data tools. Most run in the browser with no backend of their own; the exceptions are marked.">
-<rect x="0.5" y="0.5" width="999" height="209" rx="14" fill="#ffffff" stroke="#e4e4df"/>
-<rect x="48" y="52" width="40" height="4" rx="2" fill="#1f3a5f"/>
-<text x="48" y="112" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="44" font-weight="600" letter-spacing="-1" fill="#16181d">Pharmacy, insurance and data tools.</text>
-<text x="48" y="154" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#4a4f5a">Most run in the browser with no backend of their own. The exceptions are marked.</text>
-<text x="48" y="184" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="13.5" fill="#8a909c">github.com/datakid</text>
-</svg>
