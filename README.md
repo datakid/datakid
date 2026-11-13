@@ -1,3 +1,10 @@
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="assets/cover-dark.svg">
+<img src="assets/cover-light.svg" alt="Tools for data work" width="100%">
+</picture>
+
+Spreadsheets, text and files, plus pharmacy and insurance records. Each entry states what the tool does, what it does not do, and how far it has been checked.
+
 [Featured](#featured) · [How these are built](#how-these-are-built) · [More tools](#more-tools) · [All tools](#all-tools) · [Elsewhere](#elsewhere)
 
 ## Featured
