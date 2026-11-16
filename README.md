@@ -74,11 +74,25 @@ Turns pasted text or a file into a table, one undoable step at a time: 7 kinds o
 
 ## How these are built
 
-The code in these repositories is written with AI models. Each tool states how far it has been checked: `tests in repo`, `self-test page`, `manual checks` or `unverified`.
+The code in these repositories is written with AI models. Each entry states how far its tool has been checked, as one of `tests in repo`, `self-test page`, `manual checks` or `unverified`.
 
-Network: `no network` makes no network requests. `CDN on load` loads fonts or libraries from a CDN. `calls <host>` requests that host.  
-Offline and platform: `works offline` caches the app with a service worker. `Windows` and `Android` mark apps that are not web pages.  
-Checked: `tests in repo` a test command or page exists. `self-test page` the app runs its own checks. `manual checks` is set only by the owner. `unverified` no tests were found.
+**Records.** Quoin keeps three files in `docs/`. `QUOIN_SPEC.md` is the specification the build follows. `decisions.md` lists each place the build differs from it, with the reason. `observations.md` lists what has been checked against real Excel and what is still waiting. Weft and Duckbench keep a `CHANGELOG.md`. The other tools have no such records.
+
+**Counts.** Of the 35 tools listed here, 19 are `tests in repo`, 4 are `self-test page`, 0 are `manual checks` and 12 are `unverified`.
+
+**Tags.**
+
+| Tag | Meaning |
+| --- | --- |
+| `no network` | Makes no network requests. |
+| `CDN on load` | Loads fonts or libraries from a CDN. |
+| `calls <host>` | Requests that host. |
+| `works offline` | Caches the app with a service worker. |
+| `Windows` `Android` | Not a web page: an app for that system. |
+| `tests in repo` | A test command or page exists. |
+| `self-test page` | The app runs its own checks. |
+| `manual checks` | Set only by the owner. |
+| `unverified` | No tests were found. |
 
 ## More tools
 
