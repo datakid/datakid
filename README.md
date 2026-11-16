@@ -2,7 +2,7 @@
 
 Tools for data that arrives in bad shape: spreadsheets with the header on the wrong row, Arabic and English in the same column, pack sizes written inside item names, tables pasted from a web page. Each entry states what the tool does, what it does not do, and how far it has been checked.
 
-[Featured](#featured) · [How these are built](#how-these-are-built) · [More tools](#more-tools) · [All tools](#all-tools) · [Elsewhere](#elsewhere)
+[Featured](#featured) · [More tools](#more-tools) · [The rest](#the-rest) · [How these are built](#how-these-are-built) · [Elsewhere](#elsewhere)
 
 ## Featured
 
@@ -16,8 +16,8 @@ Tools for data that arrives in bad shape: spreadsheets with the header on the wr
 Runs the Power Query inside an `.xlsx` or `.xlsm` in a browser tab: 511 of 545 library functions are fully supported. VBA is edited, never run.  
 `no network` `works offline` `tests in repo` · [Open](https://power-query-manager.vercel.app) · [Source](https://github.com/datakid/power-query-manager)
 
-**Checked** (run 2026-11-16): 767 unit tests pass, 0 fail, 5 skipped. Three workbooks saved by Excel read and rebuild byte for byte when nothing is edited. Edited workbooks are accepted by `openpyxl`, `zipfile` and a headless LibreOffice conversion, and queries from three Excel-authored workbooks match the tables Excel cached, apart from time-dependent columns.  
-**Not checked:** none of the 10 manual checks in real Excel has been run, so an edited file is not confirmed to open in Excel. Only Chromium has been tested, not Firefox or WebKit. Printing was not tried on paper. 32 library functions are unsupported and 2 are partial.
+**Checked** (run 2026-11-16): 767 unit tests pass, 5 skipped. Three Excel-saved workbooks read and rebuild byte for byte when nothing is edited. Edited workbooks are accepted by `openpyxl` and a headless LibreOffice conversion. Query results for three Excel-authored workbooks match the tables Excel cached, apart from time-dependent columns.  
+**Not checked:** the 10 manual checks in real Excel, so an edited file is not confirmed to open in Excel. Firefox and WebKit. Printing.
 
 ### Duckbench
 
@@ -43,7 +43,25 @@ Turns pasted text or a file into a table, one undoable step at a time: 7 kinds o
 `no network` `tests in repo` · [Open](https://data-cleaner-coral.vercel.app) · [Source](https://github.com/datakid/data-cleaner)
 
 **Checked** (run 2026-11-16): `tests.html` passes 1,127 of 1,127. The code registers 16 readers; the page lists 7 kinds of input.  
-**Not checked:** `ui-test.html` passed 309 of 313 in headless Chromium and failed 4: `issues found`, `fix repeatedHeader present`, `filter amount empty` and `P4 the pinned column casts an edge shadow only while scrolled sideways`. Their cause has not been found. It was run only headless.
+**Not checked:** `ui-test.html` passed 309 of 313 in headless Chromium. The 4 failures are issue detection, the repeated-header fix, an amount filter and the pinned-column shadow; the cause has not been found. It has not been run in a desktop browser.
+
+## More tools
+
+### Data, text and files
+
+**Sluice.** Chains 110 text tools into pipelines that can be saved and re-run. Text only, no binary formats.  
+`no network` `tests in repo` · [Open](https://text-tools-kohl.vercel.app) · [Source](https://github.com/datakid/text-tools)
+
+**Nadir.** Optimisation solver: linear and integer models by simplex and branch and bound, nonlinear ones by ALM with L-BFGS or Differential Evolution. Nonlinear results are not proven global optima.  
+`no network` `works offline` `self-test page` · [Open](https://solver-clone.vercel.app) · [Source](https://github.com/datakid/solver-clone)
+
+**Veritas Lens.** File forensics in the browser, including C2PA manifests. There is no trained classifier, so many generated images without tags report Inconclusive.  
+`CDN on load` `tests in repo` · [Open](https://pattern-recognition-sooty.vercel.app) · [Source](https://github.com/datakid/pattern-recognition-)
+
+### Pharmacy and insurance
+
+**LX Parser.** Reads messy Arabic and English inventory sheets and detects headers and layout. All data stays in the browser, with no server and no sync.  
+`calls docs.google.com` `CDN on load` `tests in repo` · [Source](https://github.com/datakid/lx-parser)
 
 <details>
 <summary>How LX Parser reads quantity cells: 17 cases</summary>
@@ -72,58 +90,24 @@ What [LX Parser](https://github.com/datakid/lx-parser) does with quantity cells 
 
 </details>
 
-## How these are built
+**Lx Search.** Formulary lookup over 1,261 medications. The data is a built-in snapshot, and Refresh reads `data/formulary.json`.  
+`CDN on load` `works offline` `tests in repo` · [Open](https://lx-search-kappa.vercel.app) · [Source](https://github.com/datakid/lx-search-)
 
-The code in these repositories is written with AI models. Each entry states how far its tool has been checked, as one of `tests in repo`, `self-test page`, `manual checks` or `unverified`.
-
-**Records.** Quoin keeps three files in `docs/`. `QUOIN_SPEC.md` is the specification the build follows. `decisions.md` lists each place the build differs from it, with the reason. `observations.md` lists what has been checked against real Excel and what is still waiting. Weft and Duckbench keep a `CHANGELOG.md`. The other tools have no such records.
-
-**Counts.** Of the 35 tools listed here, 19 are `tests in repo`, 4 are `self-test page`, 0 are `manual checks` and 12 are `unverified`.
-
-<details>
-<summary>Tag legend</summary>
-
-| Tag | Meaning |
-| --- | --- |
-| `no network` | Makes no network requests. |
-| `CDN on load` | Loads fonts or libraries from a CDN. |
-| `calls <host>` | Requests that host. |
-| `works offline` | Caches the app with a service worker. |
-| `Windows` `Android` | Not a web page: an app for that system. |
-| `tests in repo` | A test command or page exists. |
-| `self-test page` | The app runs its own checks. |
-| `manual checks` | Set only by the owner. |
-| `unverified` | No tests were found. |
-
-</details>
-
-## More tools
-
-### Data, text and files
-
-**Sluice.** Chains 110 text tools into pipelines that can be saved and re-run. Text only, no binary formats. `no network` `tests in repo` · [Open](https://text-tools-kohl.vercel.app) · [Source](https://github.com/datakid/text-tools)
-
-**Nadir.** Optimisation solver: linear and integer models by simplex and branch and bound, nonlinear ones by ALM with L-BFGS or Differential Evolution. Nonlinear results are not proven global optima. `no network` `works offline` `self-test page` · [Open](https://solver-clone.vercel.app) · [Source](https://github.com/datakid/solver-clone)
-
-**Veritas Lens.** File forensics in the browser, including C2PA manifests. There is no trained classifier, so many generated images without tags report Inconclusive. `CDN on load` `tests in repo` · [Open](https://pattern-recognition-sooty.vercel.app) · [Source](https://github.com/datakid/pattern-recognition-)
-
-### Pharmacy and insurance
-
-**LX Parser.** Reads messy Arabic and English inventory sheets and detects headers and layout. All data stays in the browser, with no server and no sync. `calls docs.google.com` `CDN on load` `tests in repo` · [Source](https://github.com/datakid/lx-parser)
-
-**Lx Search.** Formulary lookup over 1,261 medications. The data is a built-in snapshot, and Refresh reads `data/formulary.json`. `CDN on load` `works offline` `tests in repo` · [Open](https://lx-search-kappa.vercel.app) · [Source](https://github.com/datakid/lx-search-)
-
-**Alembic.** Pharmacy dashboard over one fixed Google Sheet, read as CSV. It has no file upload. `calls docs.google.com` `CDN on load` `unverified` · [Open](https://dashboard2-iota.vercel.app) · [Source](https://github.com/datakid/dashboard2)
+**Alembic.** Pharmacy dashboard over one fixed Google Sheet, read as CSV. It has no file upload.  
+`calls docs.google.com` `CDN on load` `unverified` · [Open](https://dashboard2-iota.vercel.app) · [Source](https://github.com/datakid/dashboard2)
 
 ### Android and Windows
 
-**Tacit.** Keyboard-first Android launcher with Arabic-aware search. Nothing has been measured on a real phone. `Android` `no network` `tests in repo` · [Source](https://github.com/datakid/tacit)
+**Tacit.** Keyboard-first Android launcher with Arabic-aware search. Nothing has been measured on a real phone.  
+`Android` `no network` `tests in repo` · [Source](https://github.com/datakid/tacit)
 
-**PS Tools.** Windows right-click toolkit in one exe, with no installer. Administrator actions show their script first and need UAC, and the download-link action fetches the copied address. `Windows` `tests in repo` · [Source](https://github.com/datakid/ps-tools-)
+**PS Tools.** Windows right-click toolkit in one exe, with no installer. Administrator actions show their script first and need UAC, and the download-link action fetches the copied address.  
+`Windows` `tests in repo` · [Source](https://github.com/datakid/ps-tools-)
 
-**Contact Flow.** Contact import and export for Android, with search in Arabic, English and Chinese. `.numbers` is exported as a spreadsheet. `Android` `no network` `tests in repo` · [Source](https://github.com/datakid/contact-flow)
+**Contact Flow.** Contact import and export for Android, with search in Arabic, English and Chinese. `.numbers` is exported as a spreadsheet.  
+`Android` `no network` `tests in repo` · [Source](https://github.com/datakid/contact-flow)
 
-## All tools
+## The rest
 
 <details>
 <summary>23 more, by group</summary>
@@ -171,6 +155,31 @@ The code in these repositories is written with AI models. Each entry states how 
 | [Pandas and Polars tutorial](https://github.com/datakid/pandas-polars-basic-tutorial) | 21 sections of paired code for Pandas 3.0 and Polars 1.42. The code is shown, not run. | `CDN on load` `unverified` |
 | [Contact Flow Web](https://github.com/datakid/contact-flow-web) | Contact manager in the browser: SQLite on the Origin Private File System, export in 5 formats, Arabic and Chinese search. There is no sync, and clearing site data deletes the contacts. | `no network` `works offline` `tests in repo` |
 
+
+</details>
+
+## How these are built
+
+The code in these repositories is written with AI models. Each entry states how far its tool has been checked, as one of `tests in repo`, `self-test page`, `manual checks` or `unverified`.
+
+**Records.** Quoin keeps three files in `docs/`: `QUOIN_SPEC.md`, the specification it follows; `decisions.md`, each place the build differs from it, with the reason; and `observations.md`, what has been checked against real Excel and what is still waiting. Weft and Duckbench keep a `CHANGELOG.md`. The other tools have no such records.
+
+**Counts.** Of the 35 tools listed here, 19 are `tests in repo`, 4 are `self-test page`, 0 are `manual checks` and 12 are `unverified`.
+
+<details>
+<summary>Tag legend</summary>
+
+| Tag | Meaning |
+| --- | --- |
+| `no network` | Makes no network requests. |
+| `CDN on load` | Loads fonts or libraries from a CDN. |
+| `calls <host>` | Requests that host. |
+| `works offline` | Caches the app with a service worker. |
+| `Windows` `Android` | Not a web page: an app for that system. |
+| `tests in repo` | A test command or page exists. |
+| `self-test page` | The app runs its own checks. |
+| `manual checks` | Set only by the owner. |
+| `unverified` | No tests were found. |
 
 </details>
 
