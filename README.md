@@ -1,7 +1,4 @@
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="assets/cover-dark.svg">
-<img src="assets/cover-light.svg" alt="Tools for messy data" width="100%">
-</picture>
+# Tools for messy data
 
 Tools for data that arrives in bad shape: spreadsheets with the header on the wrong row, Arabic and English in the same column, pack sizes written inside item names, tables pasted from a web page. Each entry states what the tool does, what it does not do, and how far it has been checked.
 
