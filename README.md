@@ -2,31 +2,7 @@
 
 Tools for data that arrives in bad shape: spreadsheets with the header on the wrong row, Arabic and English in the same column, pack sizes written inside item names, tables pasted from a web page. Each entry states what the tool does, what it does not do, and how far it has been checked.
 
-[Cells as they arrive](#cells-as-they-arrive) · [Featured](#featured) · [How these are built](#how-these-are-built) · [More tools](#more-tools) · [All tools](#all-tools) · [Elsewhere](#elsewhere)
-
-## Cells as they arrive
-
-What [LX Parser](https://github.com/datakid/lx-parser) does with quantity cells typed by hand. Each row is a case in its test file, `tests/parser.test.js`; the full suite is 111 checks, 111 passed, 0 failed.
-
-| Cell as typed | What it is | Read as | Status |
-| --- | --- | --- | --- |
-| `12` | plain number | 12 | read as is |
-| `١٢` | Arabic-Indic digits | 12 | read as is |
-| `۱۵` | Persian digits | 15 | read as is |
-| `1,234` | thousands comma | 1234 | read as is |
-| `1.234,5` | European format | 1234.5 | corrected |
-| `12,5` | decimal comma | 12.5 | corrected |
-| `٣٫٥` | Arabic decimal separator | 3.5 | corrected |
-| `5 علب` | trailing unit word | 5 | corrected |
-| `3+2` | tally sum | 5 | corrected |
-| `عشرة` | Arabic number word | 10 | corrected |
-| `x3` | multiplier | 3 | corrected |
-| `150 ج.م` | currency | 150 | corrected |
-| `10-12` | range takes the first | 10 | corrected |
-| `#REF!` | spreadsheet error | none | error, flagged |
-| `-` | dash | none | empty |
-| `لا يوجد` | "none" in Arabic | none | empty |
-| `abc` | garbage | none | unparseable |
+[Featured](#featured) · [How these are built](#how-these-are-built) · [More tools](#more-tools) · [All tools](#all-tools) · [Elsewhere](#elsewhere)
 
 ## Featured
 
@@ -69,6 +45,33 @@ Turns pasted text or a file into a table, one undoable step at a time: 7 kinds o
 **Checked** (run 2026-11-16): `tests.html` passes 1,127 of 1,127. The code registers 16 readers; the page lists 7 kinds of input.  
 **Not checked:** `ui-test.html` passed 309 of 313 in headless Chromium and failed 4: `issues found`, `fix repeatedHeader present`, `filter amount empty` and `P4 the pinned column casts an edge shadow only while scrolled sideways`. Their cause has not been found. It was run only headless.
 
+<details>
+<summary>How LX Parser reads quantity cells: 17 cases</summary>
+
+What [LX Parser](https://github.com/datakid/lx-parser) does with quantity cells typed by hand. Each row is a case in its test file, `tests/parser.test.js`; the full suite is 111 checks, 111 passed, 0 failed.
+
+| Cell as typed | What it is | Read as | Status |
+| --- | --- | --- | --- |
+| `12` | plain number | 12 | read as is |
+| `١٢` | Arabic-Indic digits | 12 | read as is |
+| `۱۵` | Persian digits | 15 | read as is |
+| `1,234` | thousands comma | 1234 | read as is |
+| `1.234,5` | European format | 1234.5 | corrected |
+| `12,5` | decimal comma | 12.5 | corrected |
+| `٣٫٥` | Arabic decimal separator | 3.5 | corrected |
+| `5 علب` | trailing unit word | 5 | corrected |
+| `3+2` | tally sum | 5 | corrected |
+| `عشرة` | Arabic number word | 10 | corrected |
+| `x3` | multiplier | 3 | corrected |
+| `150 ج.م` | currency | 150 | corrected |
+| `10-12` | range takes the first | 10 | corrected |
+| `#REF!` | spreadsheet error | none | error, flagged |
+| `-` | dash | none | empty |
+| `لا يوجد` | "none" in Arabic | none | empty |
+| `abc` | garbage | none | unparseable |
+
+</details>
+
 ## How these are built
 
 The code in these repositories is written with AI models. Each entry states how far its tool has been checked, as one of `tests in repo`, `self-test page`, `manual checks` or `unverified`.
@@ -77,7 +80,8 @@ The code in these repositories is written with AI models. Each entry states how 
 
 **Counts.** Of the 35 tools listed here, 19 are `tests in repo`, 4 are `self-test page`, 0 are `manual checks` and 12 are `unverified`.
 
-**Tags.**
+<details>
+<summary>Tag legend</summary>
 
 | Tag | Meaning |
 | --- | --- |
@@ -90,6 +94,8 @@ The code in these repositories is written with AI models. Each entry states how 
 | `self-test page` | The app runs its own checks. |
 | `manual checks` | Set only by the owner. |
 | `unverified` | No tests were found. |
+
+</details>
 
 ## More tools
 
