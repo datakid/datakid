@@ -5,7 +5,31 @@
 
 Tools for data that arrives in bad shape: spreadsheets with the header on the wrong row, Arabic and English in the same column, pack sizes written inside item names, tables pasted from a web page. Each entry states what the tool does, what it does not do, and how far it has been checked.
 
-[Featured](#featured) · [How these are built](#how-these-are-built) · [More tools](#more-tools) · [All tools](#all-tools) · [Elsewhere](#elsewhere)
+[Cells as they arrive](#cells-as-they-arrive) · [Featured](#featured) · [How these are built](#how-these-are-built) · [More tools](#more-tools) · [All tools](#all-tools) · [Elsewhere](#elsewhere)
+
+## Cells as they arrive
+
+What [LX Parser](https://github.com/datakid/lx-parser) does with quantity cells typed by hand. Each row is a case in its test file, `tests/parser.test.js`; the full suite is 111 checks, 111 passed, 0 failed.
+
+| Cell as typed | What it is | Read as | Status |
+| --- | --- | --- | --- |
+| `12` | plain number | 12 | read as is |
+| `١٢` | Arabic-Indic digits | 12 | read as is |
+| `۱۵` | Persian digits | 15 | read as is |
+| `1,234` | thousands comma | 1234 | read as is |
+| `1.234,5` | European format | 1234.5 | corrected |
+| `12,5` | decimal comma | 12.5 | corrected |
+| `٣٫٥` | Arabic decimal separator | 3.5 | corrected |
+| `5 علب` | trailing unit word | 5 | corrected |
+| `3+2` | tally sum | 5 | corrected |
+| `عشرة` | Arabic number word | 10 | corrected |
+| `x3` | multiplier | 3 | corrected |
+| `150 ج.م` | currency | 150 | corrected |
+| `10-12` | range takes the first | 10 | corrected |
+| `#REF!` | spreadsheet error | none | error, flagged |
+| `-` | dash | none | empty |
+| `لا يوجد` | "none" in Arabic | none | empty |
+| `abc` | garbage | none | unparseable |
 
 ## Featured
 
@@ -59,6 +83,8 @@ Checked: `tests in repo` a test command or page exists. `self-test page` the app
 
 ### Pharmacy and insurance
 
+**LX Parser.** Reads messy Arabic and English inventory sheets and detects headers and layout. All data stays in the browser, with no server and no sync. `calls docs.google.com` `CDN on load` `tests in repo` · [Source](https://github.com/datakid/lx-parser)
+
 **Lx Search.** Formulary lookup over 1,261 medications. The data is a built-in snapshot, and Refresh reads `data/formulary.json`. `CDN on load` `works offline` `tests in repo` · [Open](https://lx-search-kappa.vercel.app) · [Source](https://github.com/datakid/lx-search-)
 
 **Alembic.** Pharmacy dashboard over one fixed Google Sheet, read as CSV. It has no file upload. `calls docs.google.com` `CDN on load` `unverified` · [Open](https://dashboard2-iota.vercel.app) · [Source](https://github.com/datakid/dashboard2)
@@ -74,7 +100,7 @@ Checked: `tests in repo` a test command or page exists. `self-test page` the app
 ## All tools
 
 <details>
-<summary>24 more, by group</summary>
+<summary>23 more, by group</summary>
 
 ### Pharmacy and insurance
 
@@ -82,7 +108,6 @@ Checked: `tests in repo` a test command or page exists. `self-test page` the app
 | --- | --- | --- |
 | [LX Search 5.5](https://github.com/datakid/newlist) | Medicine search with a pricing calculator for several models. The tray holds at most 30 calculations. | `CDN on load` `self-test page` |
 | [Lx Search F4](https://github.com/datakid/searchbar) | Lookup over 1,106 medication records in one file. Two Acetyl Salicylic Acid variants still match weakly when spelled phonetically. | `CDN on load` `unverified` |
-| [LX Parser](https://github.com/datakid/lx-parser) | Reads messy Arabic and English inventory sheets and detects headers and layout. All data stays in the browser, with no server and no sync. | `calls docs.google.com` `CDN on load` `tests in repo` |
 | [Tally](https://github.com/datakid/slippery-form-2.2) | External-tickets report tool with two entry flows, casual and typist. There is no cloud sync or multi-device sharing. | `no network` `works offline` `tests in repo` |
 | [Daftar](https://github.com/datakid/daftar) | Ledger reports from dispensing sheets in Excel or CSV, printed onto A4 forms. Inline cell editing is not built. | `no network` `self-test page` |
 | [Monthly drug-group statement](https://github.com/datakid/finalapp) | Monthly drug-group totals by category, with bulk file upload. Submission uses `no-cors`, so receipt is never confirmed. | `calls workers.dev` `CDN on load` `tests in repo` |
