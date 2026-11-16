@@ -43,6 +43,9 @@ What [LX Parser](https://github.com/datakid/lx-parser) does with quantity cells 
 Runs the Power Query inside an `.xlsx` or `.xlsm` in a browser tab: 511 of 545 library functions are fully supported. VBA is edited, never run.  
 `no network` `works offline` `tests in repo` · [Open](https://power-query-manager.vercel.app) · [Source](https://github.com/datakid/power-query-manager)
 
+**Checked** (run 2026-11-16): 767 unit tests pass, 0 fail, 5 skipped. Three workbooks saved by Excel read and rebuild byte for byte when nothing is edited. Edited workbooks are accepted by `openpyxl`, `zipfile` and a headless LibreOffice conversion, and queries from three Excel-authored workbooks match the tables Excel cached, apart from time-dependent columns.  
+**Not checked:** none of the 10 manual checks in real Excel has been run, so an edited file is not confirmed to open in Excel. Only Chromium has been tested, not Firefox or WebKit. Printing was not tried on paper. 32 library functions are unsupported and 2 are partial.
+
 ### Duckbench
 
 <a href="https://duckbench2.vercel.app"><picture>
@@ -53,6 +56,9 @@ Runs the Power Query inside an `.xlsx` or `.xlsm` in a browser tab: 511 of 545 l
 Cleans, reshapes and joins CSV, Excel, JSON and Parquet files by visual steps or SQL. Files over 1 GiB open in DuckDB, and steps that cannot be translated to SQL then run on the first 1,000,000 rows.  
 `CDN on load` `calls extensions.duckdb.org` `tests in repo` · [Open](https://duckbench2.vercel.app) · [Source](https://github.com/datakid/duckbench)
 
+**Checked** (run 2026-11-16): `tests.html` passes 129 of 129 in headless Chromium. A step that ran on the first 1,000,000 rows carries a `preview` badge and a warning.  
+**Not checked:** `parity.html`, which compares the SQL translation with the JavaScript engine, was not run. A file over 1 GiB was not opened.
+
 ### Weft
 
 <a href="https://data-cleaner-coral.vercel.app"><picture>
@@ -62,6 +68,9 @@ Cleans, reshapes and joins CSV, Excel, JSON and Parquet files by visual steps or
 
 Turns pasted text or a file into a table, one undoable step at a time: 7 kinds of input, from CSV to server logs. When the format guess is wrong, other readings are offered.  
 `no network` `tests in repo` · [Open](https://data-cleaner-coral.vercel.app) · [Source](https://github.com/datakid/data-cleaner)
+
+**Checked** (run 2026-11-16): `tests.html` passes 1,127 of 1,127. The code registers 16 readers; the page lists 7 kinds of input.  
+**Not checked:** `ui-test.html` passed 309 of 313 in headless Chromium and failed 4: `issues found`, `fix repeatedHeader present`, `filter amount empty` and `P4 the pinned column casts an edge shadow only while scrolled sideways`. Their cause has not been found. It was run only headless.
 
 ## How these are built
 
